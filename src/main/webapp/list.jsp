@@ -37,7 +37,7 @@
 		while (rs.next()) {
 			int id = Integer.parseInt(rs.getString("id"));
 %>
-		<tr>s
+		<tr>
 			<td><%= id %></td>
 			<td><a href=display.jsp?id=<%= id %>>
 				<%= rs.getString("subject") %>
