@@ -21,11 +21,11 @@
 		Class.forName("org.mariadb.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_db", "java", "java");
 		Statement stmt = conn.createStatement();
-		String sql = "SELECT * FROM book_table WHERE title LIKE '% + title %' ORDER BY title ASC";
+		String sql = "SELECT * FROM book_table WHERE title LIKE '%" + title + "%' ORDER BY title ASC";
 		ResultSet rs = stmt.executeQuery(sql);
 %>
 	<hr>
-	<form method="post" action="orderproc.jsp">
+	<form method="post" action="order_proc.jsp">
 		<table border=1 cellpadding=5>
 			<tr>
 				<th>주문</th>
@@ -42,8 +42,8 @@
 				<td><input type="checkbox" name="id" value="<%= id %>"></td>
 				<td><%= rs.getString("author") %></td>
 				<td><%= rs.getString("title") %></td>
-				<td><%= rs.getString("price") %>원</td>
-				<td><%= rs.getString("qty") %>권</td>
+				<td><%= rs.getInt("price") %>원</td>
+				<td><%= rs.getInt("qty") %>권</td>
 			</tr>
 <%
 	}
