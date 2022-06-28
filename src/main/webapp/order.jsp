@@ -20,7 +20,7 @@
 	if(title != null) {
 		Class.forName("org.mariadb.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_db", "java", "java");
-		Statement stmt = conn.createStatement();=
+		Statement stmt = conn.createStatement();
 		String sql = "SELECT * FROM book_table WHERE title LIKE '%" + title + "%' ORDER BY title ASC";
 		ResultSet rs = stmt.executeQuery(sql);
 %>

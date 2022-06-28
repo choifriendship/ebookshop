@@ -19,7 +19,7 @@
 </head>
 <body>
 	<section id="loginArea">
-		<form action="main.jsp" method="post">
+		<form action="loginProcess.jsp" method="post">
 		<fieldset>
 			<legend>로그인</legend>
 				<table>
@@ -32,7 +32,7 @@
 						<input type="reset" value="다시 작성"></td>
 					</tr>
 					<tr>
-						<td><a href="joinForm_1.jsp" class="join">회원가입</a></td>
+						<td><a href="join.jsp" class="join">회원가입</a></td>
 					</tr>
 				</table>
 		</fieldset>
