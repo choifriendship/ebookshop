@@ -33,13 +33,13 @@
 </style>
 </head>
 <body>
-	<form name="join" action="joinProcess.jsp" method="get">
+	<form name="join" action="joinProcess.jsp" method="get" onsubmit="return chkForm();">
 	  <fieldset>
 	      <label for= "id">아이디</label>
 	      <input type="text" name="id" id="id">
 	      
 	      <input type="button" value="중복확인" onclick="idCheck()"><br>
-	      <input type="hidden" id="idDuplication" value="idUncheck">
+	      <input type="hidden" id="hidden_id" value="0"> <!-- 중복 체크 값 확인 -->
 	      
 	      <label for= "name">이름</label>
 	      <input type="text" name="name" id="name" required="required"/>
@@ -57,12 +57,15 @@ function idCheck(){ // join.jsp
 		alert("아이디를 입력하세요");
 	}
 	else {
-	window.open(url, "idCheck", "width=400, height=200"); // idCheck라는 임의의 이름으로 창이 열린다.
+	window.open(url, "idCheck", "width=400, height=200");// idCheck라는 임의의 이름으로 창이 열린다.
 	}
 }
 
-function joinCheck() { // join.jsp
-	document.join.idDuplication.value = "idUncheck"
+function chkForm(){
+	if(join.hidden_id.value=="0") {
+		alert("중복체크를 진행해주세요");
+		return false;
+	}
 }
 </script>
 </html>

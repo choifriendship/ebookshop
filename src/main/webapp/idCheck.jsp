@@ -72,7 +72,7 @@
 <%		
 	}
 %>
-<script> // jsp에서 id를 가져와 js에서 사용하기 위해 js를 따로 설정
+<script type="text/javascript"> // jsp에서 id를 가져와 js에서 사용하기 위해 js를 따로 설정
 	function setid(){
 		opener.document.join.id.value= "<%=id %>";
 		window.self.close();
