@@ -51,7 +51,7 @@
 %>
 		<tr>
 			<td><%= id %></td>
-			<td><a href=display.jsp?id=<%= id %>>99
+			<td><a href=display.jsp?id=<%= id %>>
 				<%= rs.getString("subject") %>
 				</a></td>
 			<td><%= rs.getString("name") %></td>
