@@ -8,7 +8,7 @@
 %>
 <%	if(level == 1) {%>
 	<h3>level이 낮아 게시글을 볼 수가 없습니다.</h3>
-	<a href="login.jsp">로그인창으로 돌아가기</a>
+	<a href="logout.jsp">로그아웃</a>
 <%} else  {%>
 <!DOCTYPE html>
 <html>
@@ -26,12 +26,16 @@
 			<td>이메일</td>
 		</tr>
 <%
+	String MariaDB = application.getInitParameter("MariaDB");
+	String MariaDBURL = application.getInitParameter("MariaDBURL");
+	String MariaId = application.getInitParameter("MariaId");
+	String MariaPasswd = application.getInitParameter("MariaPasswd");
+	
 	Connection conn = null;
 	Statement stmt = null;
 	try {
-		Class.forName("org.mariadb.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/board";
-		conn = DriverManager.getConnection(url, "java", "java");
+		Class.forName(MariaDB);
+		conn = DriverManager.getConnection(MariaDBURL, MariaId, MariaPasswd);
 	} catch(Exception e) {
 		out.println("데이터베이스 접속에 문제가 있습니다.<hr>");
 		out.println(e.getMessage());
@@ -62,6 +66,7 @@
 <%	if(level == 3) {%>
 	<a href="write.jsp">게시글 쓰기</a>
 <%}%>
+	<a href="logout.jsp">로그아웃</a>
 <%
 	if(stmt != null) 
 		stmt.close();

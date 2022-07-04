@@ -11,10 +11,15 @@
 	<h1>인터넷 프로그래머 서점</h1>
 	<h2>주문해주셔서 감사합니다.</h2>
 <%
+	String MariaDB2 = application.getInitParameter("MariaDB2");
+	String MariaDBURL2 = application.getInitParameter("MariaDBURL2");
+	String MariaId2 = application.getInitParameter("MariaId2");
+	String MariaPasswd2 = application.getInitParameter("MariaPasswd2");
+	
 	String[] ids = request.getParameterValues("id");
 	if(ids != null) {
-	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_db", "java", "java");
+	Class.forName(MariaDB2);
+	Connection conn = DriverManager.getConnection(MariaDBURL2, MariaId2, MariaPasswd2);
 	Statement stmt = conn.createStatement();
 	String sql;
 	int recordUpdated;

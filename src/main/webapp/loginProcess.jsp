@@ -9,18 +9,20 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 
-	String driver = "org.mariadb.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/board";
+	String MariaDB = application.getInitParameter("MariaDB");
+	String MariaDBURL = application.getInitParameter("MariaDBURL");
+	String MariaId = application.getInitParameter("MariaId");
+	String MariaPasswd = application.getInitParameter("MariaPasswd");
 	
 	Boolean connect = false;
 	
 	try {
 		
 		// 1. 데이터베이스(mariaDB) 드라이버 로드
-		Class.forName(driver);
+		Class.forName(MariaDB);
 		
 		// 2. 드라이버 매니저 연결 + 커넥션 생성
-		conn = DriverManager.getConnection(url, "java", "java");
+		conn = DriverManager.getConnection(MariaDBURL, MariaId, MariaPasswd);
 		
 		connect = true;
 		
@@ -44,7 +46,7 @@
 		}
 		
 		// 아니라면 로그인 화면으로 돌아간다.
-		response.sendRedirect("login.jsp");
+		 response.sendRedirect("login.jsp");
 	}
 	catch (Exception e){
 		connect = false;

@@ -15,16 +15,18 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	String driver = "org.mariadb.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/board";
-	
+	String MariaDB = application.getInitParameter("MariaDB");
+	String MariaDBURL = application.getInitParameter("MariaDBURL");
+	String MariaId = application.getInitParameter("MariaId");
+	String MariaPasswd = application.getInitParameter("MariaPasswd");
+
 	int check = -1;
 	
 	String id = request.getParameter("id");
 	
 	try {
-		Class.forName(driver);	
-		conn = DriverManager.getConnection(url, "java", "java");
+		Class.forName(MariaDB);	
+		conn = DriverManager.getConnection(MariaDBURL, MariaId, MariaPasswd);
 		
 		String sql = "SELECT id FROM message2 where id= ? ";
 		pstmt = conn.prepareStatement(sql);
@@ -55,7 +57,7 @@
 	if(check==1){
 %>
 		<b>"입력 id: <%= id %> 는 이미 사용중인 아이디입니다.</b>
-		<form name="idCheckForm" action="idCheckForm.jsp" method="post">
+		<form name="idCheck" action="idCheck.jsp" method="post">
 		<br>다른 아이디를 선택하세요.<br>
 		<input type="text" name="id"/>
 		<input type="submit" value="중복확인"/>
@@ -72,12 +74,12 @@
 %>
 <script> // jsp에서 id를 가져와 js에서 사용하기 위해 js를 따로 설정
 	function setid(){
-		opener.document.regStep1.id.value= "<%=id %>";
+		opener.document.join.id.value= "<%=id %>";
 		window.self.close();
 		
 		let a = document.querySelector("#conf"); // 중복 확인이 끝나면 value 값이 1로 되어 중복체크 알림이 뜨지 않는다. 
 		if(a.value == 1){
-			opener.document.querySelector("#hidden_id").value = "1";		
+			opener.document.querySelector("#hidden_id").value = "1";
 		}
 	}
 </script>    

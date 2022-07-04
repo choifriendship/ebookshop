@@ -5,7 +5,9 @@ function idCheck(){ // join.jsp
 	if(!id) {
 		alert("아이디를 입력하세요");
 	}
+	else {
 	window.open(url, "idCheck", "width=400, height=200"); // idCheck라는 임의의 이름으로 창이 열린다.
+	}
 }
 
 function joinCheck() { // join.jsp

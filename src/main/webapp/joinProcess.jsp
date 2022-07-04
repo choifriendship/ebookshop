@@ -18,14 +18,15 @@
 	String name   = request.getParameter("name");
 	int level = 1;
 	
-	
-	String driver = "org.mariadb.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/board";
-	
+	String MariaDB = application.getInitParameter("MariaDB");
+	String MariaDBURL = application.getInitParameter("MariaDBURL");
+	String MariaId = application.getInitParameter("MariaId");
+	String MariaPasswd = application.getInitParameter("MariaPasswd");
+
 	try {
-		Class.forName(driver);
+		Class.forName(MariaDB);
 		// 드라이버 연결 DB 커넥션 객체를 얻는다.
-		conn = DriverManager.getConnection(url,"java","java");
+		conn = DriverManager.getConnection(MariaDBURL, MariaId, MariaPasswd);
 		
 		// SQL 문을 DBMS에 전송할 수 있는 Statement 객체 생성
 		stmt = conn.createStatement();

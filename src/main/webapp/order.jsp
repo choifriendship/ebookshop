@@ -15,11 +15,17 @@
 		책 제목: <input type="text" name="title"><br>
 				 <input type="submit" value="검색">
 	</form>
+
 <%
+	String MariaDB2 = application.getInitParameter("MariaDB2");
+	String MariaDBURL2 = application.getInitParameter("MariaDBURL2");
+	String MariaId2 = application.getInitParameter("MariaId2");
+	String MariaPasswd2 = application.getInitParameter("MariaPasswd2");
+	
 	String title = request.getParameter("title");
 	if(title != null) {
-		Class.forName("org.mariadb.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_db", "java", "java");
+		Class.forName(MariaDB2);
+		Connection conn = DriverManager.getConnection(MariaDBURL2, MariaId2, MariaPasswd2);
 		Statement stmt = conn.createStatement();
 		String sql = "SELECT * FROM book_table WHERE title LIKE '%" + title + "%' ORDER BY title ASC";
 		ResultSet rs = stmt.executeQuery(sql);

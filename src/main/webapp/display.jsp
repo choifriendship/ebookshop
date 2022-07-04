@@ -15,11 +15,14 @@
 	
 	Connection conn = null;
 	Statement stmt = null;
+	String MariaDB = application.getInitParameter("MariaDB");
+	String MariaDBURL = application.getInitParameter("MariaDBURL");
+	String MariaId = application.getInitParameter("MariaId");
+	String MariaPasswd = application.getInitParameter("MariaPasswd");
 	
 	try {
-		Class.forName("org.mariadb.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/board";
-		conn = DriverManager.getConnection(url, "java", "java");
+		Class.forName(MariaDB);
+		conn = DriverManager.getConnection(MariaDBURL, MariaId, MariaPasswd);
 	} catch(Exception e) {
 		out.println("데이터베이스 접속에 문제가 있습니다.");
 		out.println(e.getMessage());

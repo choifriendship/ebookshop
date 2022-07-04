@@ -39,13 +39,30 @@
 	      <input type="text" name="id" id="id">
 	      
 	      <input type="button" value="중복확인" onclick="idCheck()"><br>
+	      <input type="hidden" id="idDuplication" value="idUncheck">
 	      
 	      <label for= "name">이름</label>
-	      <input type="text" name="name" id="name">
+	      <input type="text" name="name" id="name" required="required"/>
 	      
 	      <input type="submit" class="join" value="회원가입" onclick="joinCheck()">
 	  </fieldset>
 	</form>
-<script type="text/javascript" src="script.js"></script>
 </body>
+<script type="text/javascript">
+function idCheck(){ // join.jsp
+	let id = join.id.value;
+	let url = "idCheck.jsp?id=" +id;
+	
+	if(!id) {
+		alert("아이디를 입력하세요");
+	}
+	else {
+	window.open(url, "idCheck", "width=400, height=200"); // idCheck라는 임의의 이름으로 창이 열린다.
+	}
+}
+
+function joinCheck() { // join.jsp
+	document.join.idDuplication.value = "idUncheck"
+}
+</script>
 </html>
