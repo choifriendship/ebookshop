@@ -41,7 +41,7 @@
 				int level = Integer.parseInt(rs.getString("level")); 
 				session.setAttribute("id", id);
 				session.setAttribute("level", level);
-				response.sendRedirect("list.jsp");
+				response.sendRedirect("main.jsp");
 			}
 		}
 		

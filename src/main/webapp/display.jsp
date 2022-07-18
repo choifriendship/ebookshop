@@ -6,8 +6,16 @@
 <html>
 <head>
 <title>게시글 표시</title>
+<style>
+	* {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
+<fieldset>
 	<h3>게시글 내용</h3>
 <%
 	String subject="", memo="", name="", time="", email="";
@@ -67,5 +75,6 @@
 	<br>
 	<br>
 	<a href="list.jsp">게시글 리스트 보기</a>
+</fieldset>
 </body>
 </html>

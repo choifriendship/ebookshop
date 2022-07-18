@@ -6,16 +6,31 @@
 	String loginId = (String)session.getAttribute("id");
 	Integer level = (Integer)session.getAttribute("level");
 %>
-<%	if(level == 1) {%>
-	<h3>level이 낮아 게시글을 볼 수가 없습니다.</h3>
-	<a href="logout.jsp">로그아웃</a>
-<%} else  {%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>게시판</title>
+<style>
+	* {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+   .show {
+   	margin-top: 10px;
+   }
+  </style>
 </head>
 <body>
+<%	if(level == 1) {%>
+	<div id="low">
+		<fieldset>
+			<h3>level이 낮아 게시글을 볼 수가 없습니다.</h3>
+			<a href="logout.jsp">로그아웃</a>
+		</fieldset>
+	</div>
+<%} else  {%>
+<fieldset>
 	<h3>게시글 리스트</h3>
 	<table border="2">
 		<tr>
@@ -64,15 +79,18 @@
 %>		
 	</table>
 <%	if(level == 3) {%>
-	<a href="write.jsp">게시글 쓰기</a>
+	<div id="show">
+		<a href="write.jsp">게시글 쓰기</a>
 <%}%>
-	<a href="logout.jsp">로그아웃</a>
+		<a href="logout.jsp">로그아웃</a>
+	</div>	
 <%
 	if(stmt != null) 
 		stmt.close();
 	if(conn != null)
 		conn.close();
 %>
+</fieldset>
 </body>
 </html>
 <%}%>

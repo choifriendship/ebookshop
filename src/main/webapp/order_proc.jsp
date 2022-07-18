@@ -6,8 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>주문처리화면</title>
+<style>
+	* {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  	}
+</style>
 </head>
 <body>
+<fieldset>
 	<h1>인터넷 프로그래머 서점</h1>
 	<h2>주문해주셔서 감사합니다.</h2>
 <%
@@ -56,5 +64,6 @@
 %>
 </table>
 <a href="order.jsp"><h3>주문화면으로 돌아가기</h3></a>
+</fieldset>
 </body>
 </html>
