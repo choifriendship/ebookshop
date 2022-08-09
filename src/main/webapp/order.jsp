@@ -11,10 +11,31 @@ request.setCharacterEncoding("utf-8");
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
+<style>
+* {
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+</style>
 <title>온라인 서점</title>
+<script>
+	$(document).ready(function() {
+		isShow = true; //변수 하나를 설정 화면에 보이면 true, 보이지 않으면 false;
+		$('button').on('click', function() {
+			if (isShow) { //보이니까 숨기고
+				isShow = false;
+				$('.counter').hide(); //요소를 안보이게 한다.
+			} else { //안보이니까 보이게 한다
+				isShow = true;
+				$('.counter').show(); //요소를 보이게 한다
+			}
+		})
+	})
+</script>
 </head>
 <body>
-	<button>계산기</button>
+	<button id="calculator">계산기</button>
 	<div class="counter" style="display: none">
 		<input id="result" value="0">
 		<div class="button1">
@@ -36,27 +57,12 @@ request.setCharacterEncoding("utf-8");
 			<input type="button" value="x" id="operater" onclick="add('*')">
 		</div>
 		<div class="button4">
-			<input type="button" value="c" id="reset" onclick="res()"> <input
-				type="button" value="0" id="button" onclick="add('0')"> <input
-				type="button" value="=" id="operater" onclick="solve()"> <input
-				type="button" value="/" id="operater" onclick="add('/')">
+			<input type="button" value="c" id="reset" onclick="res()"> 
+			<input type="button" value="0" id="button" onclick="add('0')">
+			<input type="button" value="=" id="operater" onclick="solve()">
+			<input type="button" value="/" id="operater" onclick="add('/')">
 		</div>
 	</div>
-	<script>
-		$(document).ready(function(){
-			  isShow = true; //변수 하나를 설정 화면에 보이면 true, 보이지 않으면 false;
-			  $('button').on('click',function(){
-			    if(isShow){ //보이니까 숨기고
-			      isShow = false;
-			      $('.counter').hide();   //요소를 안보이게 한다.
-			    }else{  //안보이니까 보이게 한다
-			      isShow = true;
-			      $('.counter').show();   //요소를 보이게 한다
-			    }
-			  })
-			})
-		
-	</script>
 	<fieldset>
 		<h1>인터넷 프로그래머 문고</h1>
 		<h3>제목을 입력하세요:</h3>

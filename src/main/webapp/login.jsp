@@ -9,33 +9,21 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
 	Kakao.init('a2f0eba2ccdc01557a0f3e7bf52fe18b'); //발급받은 키 중 javascript키를 사용해준다.
-	console.log(Kakao.isInitialized()); // sdk초기화여부판단
-	//카카오로그인
+	Kakao.isInitialized();
 	function kakaoLogin() {
-		Kakao.Auth.login({
+		Kakao.Auth.loginForm({
+			scope : "profile_nickname, account_email",
 			success : function(response) {
+				console.log(response);
 				Kakao.API.request({
-					url : '/v2/user/me', // 계정 정보를 가져오는 url
-					success : function(response) {
-
-						console.log(response)
-
-						sessionStorage.setItem("kakao_nickname",
-								response.kakao_account.profile.nickname);
-						sessionStorage.setItem("kakao_email",
-								response.kakao_account.email);
-						window.location.href='main.jsp'
-
-					},
-					fail : function(error) {
-						console.log(error)
-					},
-				})
-			},
-			fail : function(error) {
-				console.log(error)
-			},
-		})
+					url : "/v2/user/me",
+					success : function(res) {
+						console.log(res);
+						window.location.href = 'main.jsp';
+					}
+				});
+			}
+		});
 	}
 </script>
 <style>
@@ -53,12 +41,6 @@ a {
 </style>
 </head>
 <body>
-	<ul>
-		<li onclick="kakaoLogin();"><a href="javascript:void(0)"> <span>카카오
-					로그인</span>
-		</a></li>
-	</ul>
-
 	<section id="loginArea">
 		<form action="loginProcess.jsp" method="post">
 			<fieldset>
@@ -74,6 +56,10 @@ a {
 					<tr>
 						<td colspan="2"><input type="submit" value="로그인"> <input
 							type="reset" value="다시 작성"></td>
+					</tr>
+					<tr>
+						<td><a href="javascript:kakaoLogin()"><img
+								src="kakao_login_small.png"></a></td>
 					</tr>
 					<tr>
 						<td><a href="join.jsp" class="join">회원가입</a></td>

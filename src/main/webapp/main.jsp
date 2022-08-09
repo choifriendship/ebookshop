@@ -24,6 +24,7 @@ function kakaoLogout() {
 		})
 		Kakao.Auth.setAccessToken(undefined)
 	}
+	
 }
 </script>
 <style>
@@ -52,7 +53,7 @@ function kakaoLogout() {
 					<td><a href="list.jsp">게시판으로 가기</a></td>
 				</tr>
 				<tr>
-					<td><a href="logout.jsp" onclick="kakaoLogout()"> 로그아웃</a></td>
+					<td><a href="logout.jsp" onclick="kakaoLogout()">로그아웃</a></td>
 				</tr>
 			</table>
   </fieldset>

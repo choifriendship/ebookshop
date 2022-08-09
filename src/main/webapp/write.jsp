@@ -5,6 +5,13 @@
 <html>
 <head>
 <title>게시글 입력</title>
+<style>
+* {
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<h3>게시글 입력 화면</h3>
@@ -20,7 +27,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="memo" cols="53" rows="5"></textarea></td>
+				<td><input type="text" name="memo" size="60"></td>
 			</tr>
 			<tr>
 				<td>작성날짜</td>

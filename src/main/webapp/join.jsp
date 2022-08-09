@@ -16,6 +16,12 @@
       margin-top: 6px;
       margin-bottom: 5px;
 	}
+	input[type=password] {
+	  width: 200px;
+      margin: 5px;
+      margin-top: 6px;
+      margin-bottom: 5px;
+	}
 	input[type=submit] {
 	  position: relative;
 	  left: 5px;
