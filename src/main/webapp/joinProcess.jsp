@@ -15,6 +15,7 @@
 
 	request.setCharacterEncoding("UTF-8");
 	String id 	  = request.getParameter("id");
+	String pw = request.getParameter("pw");
 	String name   = request.getParameter("name");
 	int level = 1;
 	
@@ -31,7 +32,7 @@
 		// SQL 문을 DBMS에 전송할 수 있는 Statement 객체 생성
 		stmt = conn.createStatement();
 		
-		String sql="INSERT INTO message2 VALUES ('"+id+"','"+name+"','"+level+"');";
+		String sql="INSERT INTO message2 VALUES ('"+id+"','"+pw+"','"+name+"','"+level+"');";
 		// SQL 문을 수행한다. stmt 객체를 반환한다.
 		stmt.executeQuery(sql);
 		

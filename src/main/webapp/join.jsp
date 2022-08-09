@@ -40,9 +40,13 @@
 	      
 	      <input type="button" value="중복확인" onclick="idCheck()"><br>
 	      <input type="hidden" id="hidden_id" value="0"> <!-- 중복 체크 값 확인 -->
-	      
+
+		  <label for= "pw">비밀번호</label>
+	      <input type="password" name="pw" id="pw" required="required"/><br>
+	    	      
 	      <label for= "name">이름</label>
 	      <input type="text" name="name" id="name" required="required"/>
+	      
 	      
 	      <input type="submit" class="join" value="회원가입" onclick="joinCheck()">
 	  </fieldset>
